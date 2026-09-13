@@ -78,6 +78,42 @@ src/
 └── main.jsx
 ```
 
+## React Concepts & Questions
+
+### 1. What is JSX, and why is it used in React?
+
+JSX is a syntax extension that lets you write HTML-like code directly inside JavaScript files. It simplifies React UI development by keeping layout structure and component logic together in one place. Build tools compile JSX down into regular `React.createElement()` JavaScript function calls.
+
+### 2. What is the difference between props and state?
+
+Props are read-only data passed down from a parent component to configure a child component. State is internal data managed within a component that can change over time based on user actions. Changing state triggers a re-render of the component, whereas props cannot be modified directly by the receiving child.
+
+### 3. What does the useState hook do, and where did you use it in this project?
+
+The `useState` hook adds local state variables to functional components so React can track dynamic data. It returns the current state value along with a function to update that state and trigger a UI re-render. It is used to store values like array lists, active tabs, form inputs, or modal toggle states.
+
+### 4. What does the useEffect hook do, and why did you need it to load the JSON data?
+
+The `useEffect` hook lets functional components perform side effects like fetching data, modifying the DOM, or setting timers. It is needed for loading JSON data because data fetching is an asynchronous operation that must run after the component mounts. Without useEffect, fetching data directly inside the component body would cause infinite re-render loops.
+
+### 5. Why does every item in a .map() list need a unique key prop?
+
+A unique key prop helps React efficiently identify which items in a list have changed, been added, or been removed during re-renders. It allows React's diffing algorithm to optimize DOM updates instead of re-rendering the entire list. Without unique keys, React can misorder elements or lose track of individual item states.
+
+### 6. What is conditional rendering? Show one place you used it.
+
+Conditional rendering in React means displaying different UI components or elements based on specific logical conditions (using `&&`, ternary operators, or `if` statements). For example, showing an empty state message when a stack list is empty:
+
+```jsx
+{items.length === 0 && <p>No items found.</p>}
+```
+
+It ensures users see relevant interface feedback depending on the current application state.
+
+### 7. How do you pass data from a parent component to a child component, and how does a child send something back to the parent?
+
+Data flows top-down from parent to child by passing variables or state directly as props. To send data back, the parent passes a callback function as a prop to the child component. The child then executes that callback function and passes its internal data back up as arguments.
+
 ---
 
 <div align="center">
