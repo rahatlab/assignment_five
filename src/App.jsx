@@ -36,10 +36,6 @@ function App() {
   const [stack, setStack] = useState([]);
 
   const addToStack = (tech) => {
-    if (stack.find((item) => item.id === tech.id)) {
-      toast.warn(`${tech.name} is already in your stack!`);
-      return;
-    }
     setStack([...stack, tech]);
     toast.success(`${tech.name} added to stack!`);
   };

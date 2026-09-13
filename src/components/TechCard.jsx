@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const badgeColors = {
   Popular: "bg-blue-100 text-blue-600",
   Versatile: "bg-green-100 text-green-600",
@@ -15,6 +17,14 @@ const badgeColors = {
 };
 
 const TechCard = ({ tech, addToStack, isInStack }) => {
+  const handleClick = () => {
+    if (isInStack) {
+      toast.warn(`${tech.name} is already in your stack!`);
+      return;
+    }
+    addToStack(tech);
+  };
+
   return (
     <div className={`border rounded-xl p-5 hover:shadow-lg transition-shadow ${isInStack ? "border-green-300 bg-green-50/30" : "border-gray-200"}`}>
       <div className="flex justify-between items-start mb-3">
@@ -42,12 +52,11 @@ const TechCard = ({ tech, addToStack, isInStack }) => {
         </span>
       </div>
       <button
-        onClick={() => addToStack(tech)}
-        disabled={isInStack}
+        onClick={handleClick}
         className={`w-full py-2.5 rounded-lg font-medium transition ${
           isInStack
             ? "bg-green-500 text-white cursor-not-allowed"
-            : "bg-gray-900 text-white hover:bg-gray-800"
+            : "bg-gray-900 text-white hover:bg-gray-800 cursor-pointer"
         }`}
       >
         {isInStack ? "Added" : "Add to Stack"}
