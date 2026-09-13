@@ -1,9 +1,54 @@
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import { Suspense, useState } from "react";
+import Spinner from "./components/Spinner";
+import YourStack from "./components/Your";
+
+// fetching data
+
+const fetchDataPromise = fetch("/data.json").then((res) => res.json());
+
+function TechSection({ addToStack }) {
+  const technologies = use(fetchDataPromise);
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-8 items-start">
+      <div className="flex-1 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {technologies.map((tech) => (
+            <TechCard key={tech.id} tech={tech} addToStack={addToStack} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
+  const [stack, setStack] = useState([]);
+
+  const addToStack = (tech) => {
+    if (stack.find((item) => item.id === tech.id)) {
+      toast.warn(`${tech.name} is already in your stack!`);
+      return;
+    }
+    setStack([...stack, tech]);
+    toast.success(`${tech.name} added to stack!`);
+  };
+
+  const removeFromStack = (id) => {
+    const tech = stack.find((item) => item.id === id);
+    setStack(stack.filter((item) => item.id !== id));
+    toast.info(`${tech?.name} removed from stack.`);
+  };
+
+  const removeAll = () => {
+    setStack([]);
+    toast.info("All technologies removed from stack.");
+  };
+
   return (
     <div>
       {/* Toaster */}
@@ -24,7 +69,7 @@ function App() {
       <Navbar />
       <Hero />
 
-      {/* Main section */}
+      {/* explore the technologies section */}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
@@ -36,7 +81,16 @@ function App() {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 items-start">
-          <div className="lg:w-80 shrink-0 lg:sticky lg:top-24"></div>
+          <Suspense fallback={<Spinner />}>
+            <TechSection addToStack={addToStack} />
+          </Suspense>
+          <div className="lg:w-80 shrink-0 lg:sticky lg:top-24">
+            <YourStack
+              stack={stack}
+              removeFromStack={removeFromStack}
+              removeAll={removeAll}
+            />
+          </div>
         </div>
       </div>
       <Footer />

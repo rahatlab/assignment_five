@@ -1,3 +1,4 @@
+import logoImage from "../assets/logo-text.png"
 const Footer = () => {
   return (
     <footer className="border-t border-gray-100 mt-16">
@@ -5,11 +6,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 gradient-brand rounded-lg flex items-center justify-center">
+              {/* <div className="w-8 h-8 gradient-brand rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">DS</span>
-              </div>
+              </div> */}
               <span className="text-xl font-bold">
-                Dev <span className="gradient-text">Stack</span>
+                <img src={logoImage} alt="" />
               </span>
             </div>
             <p className="text-gray-500 text-sm mb-4">
