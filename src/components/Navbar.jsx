@@ -35,7 +35,7 @@ const Navbar = () => {
           {/* Mobile: Sign In + Sign Up */}
           <div className="md:hidden flex items-center gap-2">
             <a href="#" className="text-gray-600 text-sm font-medium px-2">Sign In</a>
-            <button className="gradient-brand text-white px-4 py-1.5 rounded-full text-sm font-medium">
+            <button className="btn gradient-brand text-white px-4 py-1.5 rounded-full text-sm font-medium">
               Sign Up
             </button>
           </div>
@@ -44,9 +44,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center justify-between w-full">
             {/* Left: Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 gradient-brand rounded-lg flex items-center justify-center">
-                {/* <span className="text-white font-bold text-sm">DS</span> */}
-              </div>
+              
               <span className="text-xl font-bold">
                 <img src={logo} alt="logo for dev stack" />
               </span>
@@ -64,7 +62,7 @@ const Navbar = () => {
             {/* Right: Auth Buttons */}
             <div className="flex items-center gap-4">
               <a href="#" className="text-gray-700 hover:text-gray-900 transition font-medium">Sign In</a>
-              <button className="gradient-brand text-white px-6 py-2.5 rounded-full font-medium hover:opacity-90 transition">
+              <button className="btn gradient-brand text-white px-6 py-2.5 rounded-full font-medium hover:opacity-90 transition">
                 Sign Up
               </button>
             </div>

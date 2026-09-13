@@ -17,10 +17,10 @@ const Hero = () => {
               next project.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <button className="gradient-brand text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition">
+              <button className="gradient-brand text-white px-6 py-3 rounded-lg font-sm lg:font-medium hover:opacity-90 transition">
                 Explore Technologies
               </button>
-              <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-medium hover:bg-gray-50 transition">
+              <button className="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-sm lg:font-medium hover:bg-gray-50 transition">
                 Learn More
               </button>
             </div>
