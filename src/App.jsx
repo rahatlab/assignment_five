@@ -11,7 +11,7 @@ import TechCard from "./components/TechCard";
 
 const fetchDataPromise = fetch("/data.json").then((res) => res.json());
 
-function TechSection({ addToStack }) {
+function TechSection({ addToStack, stack }) {
   const technologies = use(fetchDataPromise);
 
   return (
@@ -19,7 +19,12 @@ function TechSection({ addToStack }) {
       <div className="flex-1 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {technologies.map((tech) => (
-            <TechCard key={tech.id} tech={tech} addToStack={addToStack} />
+            <TechCard
+              key={tech.id}
+              tech={tech}
+              addToStack={addToStack}
+              isInStack={stack.some((item) => item.id === tech.id)}
+            />
           ))}
         </div>
       </div>
@@ -93,7 +98,7 @@ function App() {
               </div>
             }
           >
-            <TechSection addToStack={addToStack} />
+            <TechSection addToStack={addToStack} stack={stack} />
           </Suspense>
           <div className="lg:w-80 shrink-0 lg:sticky lg:top-24">
             <YourStack

@@ -14,9 +14,9 @@ const badgeColors = {
   Minimalist: "bg-pink-100 text-pink-600",
 };
 
-const TechCard = ({ tech, addToStack }) => {
+const TechCard = ({ tech, addToStack, isInStack }) => {
   return (
-    <div className="border border-gray-200 rounded-xl p-5 hover:shadow-lg transition-shadow">
+    <div className={`border rounded-xl p-5 hover:shadow-lg transition-shadow ${isInStack ? "border-green-300 bg-green-50/30" : "border-gray-200"}`}>
       <div className="flex justify-between items-start mb-3">
         <img src={tech.icon} alt={tech.name} className="w-12 h-12" />
         <span
@@ -43,9 +43,14 @@ const TechCard = ({ tech, addToStack }) => {
       </div>
       <button
         onClick={() => addToStack(tech)}
-        className="w-full bg-gray-900 text-white py-2.5 rounded-lg font-medium hover:bg-gray-800 transition"
+        disabled={isInStack}
+        className={`w-full py-2.5 rounded-lg font-medium transition ${
+          isInStack
+            ? "bg-green-500 text-white cursor-not-allowed"
+            : "bg-gray-900 text-white hover:bg-gray-800"
+        }`}
       >
-        Add to Stack
+        {isInStack ? "Added" : "Add to Stack"}
       </button>
     </div>
   );
