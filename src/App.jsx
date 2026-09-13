@@ -2,9 +2,10 @@ import { toast, ToastContainer } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import { Suspense, useState } from "react";
-import Spinner from "./components/Spinner";
-import YourStack from "./components/Your";
+import { Suspense, use, useState } from "react";
+import SkeletonCard from "./components/SkeletonCard";
+import YourStack from "./components/YourStack";
+import TechCard from "./components/TechCard";
 
 // fetching data
 
@@ -81,7 +82,17 @@ function App() {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-8 items-start">
-          <Suspense fallback={<Spinner />}>
+          <Suspense
+            fallback={
+              <div className="flex-1 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {Array.from({ length: 6 }).map((_, i) => (
+                    <SkeletonCard key={i} />
+                  ))}
+                </div>
+              </div>
+            }
+          >
             <TechSection addToStack={addToStack} />
           </Suspense>
           <div className="lg:w-80 shrink-0 lg:sticky lg:top-24">
