@@ -27,7 +27,7 @@ const Hero = () => {
           </div>
           <div className="flex-1 flex justify-center">
             <div className="relative w-full max-w-md">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-pink-400 to-violet-400 rounded-3xl opacity-20 blur-3xl"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-orange-400 via-pink-400 to-violet-400 rounded-3xl opacity-20 blur-3xl"></div>
               <img
                 src={bannerImage}
                 alt="Banner Stack"

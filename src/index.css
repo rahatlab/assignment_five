@@ -1,3 +1,35 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+  --gradient-brand: linear-gradient(to right, #f97316, #ec4899, #8b5cf6);
+}
+
+.gradient-brand {
+  background: var(--gradient-brand);
+}
+
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ec4899;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #db2777;
+}
