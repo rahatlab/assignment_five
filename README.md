@@ -118,6 +118,6 @@ Data flows top-down from parent to child by passing variables or state directly 
 
 <div align="center">
 
-**Rahat**
+**[Profile](https://github.com/rahatlab)**
 
 </div>

@@ -20,6 +20,26 @@
     "badge": "Versatile"
   },
   {
+    "id": "gitHub",
+    "name": "GitHub",
+    "category": "Technology",
+    "description": "GitHub is where over 100 million developers shape the future of software, together. Contribute to the open source community, manage your Git repositories, review code like a pro, track bugs and fea",
+    "icon": "https://icon.icepanel.io/Technology/svg/GitHub.svg",
+    "rating": 4.9,
+    "difficulty": "Intermediate",
+    "badge": "Github"
+  },
+  {
+    "id": "firebase",
+    "name": "Firebase",
+    "category": "Technology",
+    "description": "Firebase is Google's mobile platform that helps you quickly develop high-quality apps and grow your business.",
+    "icon": "https://icon.icepanel.io/Technology/svg/Firebase.svg",
+    "rating": 4.7,
+    "difficulty": "Intermediate",
+    "badge": "Firebase"
+  },
+  {
     "id": "svelte",
     "name": "Svelte",
     "category": "Frontend",
@@ -88,16 +108,6 @@
     "rating": 4.9,
     "difficulty": "Intermediate",
     "badge": "Essential"
-  },
-  {
-    "id": "java",
-    "name": "Java",
-    "category": "Language",
-    "description": "A secure, object-oriented programming language designed for portability and scale.",
-    "icon": "https://icon.icepanel.io/Technology/svg/Java.svg",
-    "rating": 4.6,
-    "difficulty": "Intermediate",
-    "badge": "Robust"
   },
   {
     "id": "tailwindcss",
